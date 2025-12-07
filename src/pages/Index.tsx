@@ -1,6 +1,7 @@
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import HowItWorks from "@/components/landing/HowItWorks";
+import InteractiveDemo from "@/components/landing/InteractiveDemo";
 import Features from "@/components/landing/Features";
 import TopicLibrary from "@/components/landing/TopicLibrary";
 import CTA from "@/components/landing/CTA";
@@ -14,11 +15,12 @@ const Index = () => {
       <div id="how-it-works">
         <HowItWorks />
       </div>
-      <div id="features">
-        <Features />
-      </div>
+      <InteractiveDemo />
       <div id="topics">
         <TopicLibrary />
+      </div>
+      <div id="features">
+        <Features />
       </div>
       <CTA />
       <Footer />

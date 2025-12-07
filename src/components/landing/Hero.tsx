@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Download, Sparkles, ChevronDown } from "lucide-react";
+import { Download, Sparkles, ChevronDown, Star, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import phoneWordScreen from "@/assets/phone-word-screen.png";
 import phoneLobbyScreen from "@/assets/phone-lobby-screen.png";
+import phoneTopicsScreen from "@/assets/phone-topics-screen.png";
 
 const Hero = () => {
   return (
@@ -71,8 +72,10 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Unmask the imposter among your friends. 1,000+ words, custom topics, 
-              and two ways to play. Perfect for game nights, parties, and unforgettable moments.
+              Unmask the imposter among your friends. <span className="text-foreground font-medium">1,000+ words</span>, 
+              {" "}<span className="text-foreground font-medium">custom topics</span>, 
+              and <span className="text-foreground font-medium">two ways to play</span>. 
+              Perfect for game nights, parties, and unforgettable moments.
             </motion.p>
 
             <motion.div 
@@ -91,64 +94,118 @@ const Hero = () => {
               </Button>
             </motion.div>
 
+            {/* Enhanced stats with icons */}
             <motion.div 
-              className="flex items-center gap-8 mt-10 justify-center lg:justify-start"
+              className="flex items-center gap-6 sm:gap-10 mt-10 justify-center lg:justify-start flex-wrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
               {[
-                { value: "1,000+", label: "Words" },
-                { value: "20+", label: "Categories" },
-                { value: "3-10+", label: "Players" }
+                { value: "1,000+", label: "Words", icon: Sparkles },
+                { value: "20+", label: "Categories", icon: Star },
+                { value: "3-10+", label: "Players", icon: Users },
+                { value: "2", label: "Game Modes", icon: Zap },
               ].map((stat, i) => (
                 <motion.div 
                   key={stat.label}
-                  className="text-center"
-                  whileHover={{ scale: 1.1 }}
+                  className="text-center group"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 + i * 0.1 }}
                 >
-                  <div className="text-2xl font-display font-bold gradient-text">{stat.value}</div>
+                  <div className="flex items-center justify-center gap-1 mb-1">
+                    <stat.icon className="w-4 h-4 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="text-2xl font-display font-bold gradient-text">{stat.value}</div>
+                  </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
 
-          {/* Phone mockups - staggered */}
+          {/* Phone mockups - 3 phones staggered */}
           <motion.div 
-            className="flex-1 relative flex justify-center items-center"
+            className="flex-1 relative flex justify-center items-center min-h-[500px]"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            {/* Background phone - lobby */}
+            {/* Background phone - topics */}
             <motion.div 
-              className="absolute -left-4 top-8 w-[220px] sm:w-[260px] opacity-60 blur-[1px]"
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -left-8 sm:-left-4 top-16 w-[180px] sm:w-[220px] opacity-50 blur-[0.5px] z-0"
+              animate={{ y: [0, -12, 0], rotate: [-2, -4, -2] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan/30 to-indigo/30 blur-[40px] scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-br from-pink/30 to-purple/30 blur-[30px] scale-110" />
+                <img 
+                  src={phoneTopicsScreen} 
+                  alt="Topics Screen" 
+                  className="relative w-full rounded-[2rem] shadow-xl"
+                />
+              </div>
+            </motion.div>
+
+            {/* Middle phone - lobby */}
+            <motion.div 
+              className="absolute -right-4 sm:right-0 top-8 w-[190px] sm:w-[230px] opacity-60 blur-[0.3px] z-10"
+              animate={{ y: [0, -15, 0], rotate: [2, 4, 2] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan/30 to-indigo/30 blur-[35px] scale-110" />
                 <img 
                   src={phoneLobbyScreen} 
                   alt="Game Lobby Screen" 
-                  className="relative w-full rounded-[2rem] shadow-2xl"
+                  className="relative w-full rounded-[2rem] shadow-xl"
                 />
               </div>
             </motion.div>
 
             {/* Main phone - word reveal */}
             <motion.div 
-              className="relative w-[260px] sm:w-[300px] z-10"
+              className="relative w-[240px] sm:w-[280px] z-20"
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
               <div className="absolute inset-0 bg-gradient-primary opacity-40 blur-[60px] scale-110" />
-              <img 
-                src={phoneWordScreen} 
-                alt="Word Reveal Screen" 
-                className="relative w-full rounded-[2.5rem] shadow-2xl"
-              />
+              <motion.div
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <img 
+                  src={phoneWordScreen} 
+                  alt="Word Reveal Screen" 
+                  className="relative w-full rounded-[2.5rem] shadow-2xl"
+                />
+                {/* Shine effect */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-[2.5rem]"
+                  animate={{ opacity: [0, 0.3, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Floating badges */}
+            <motion.div 
+              className="absolute -left-2 bottom-24 sm:bottom-20 glass px-3 py-2 rounded-xl text-sm font-medium z-30"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
+              transition={{ delay: 1, y: { duration: 3, repeat: Infinity } }}
+            >
+              🎯 Custom Topics
+            </motion.div>
+            <motion.div 
+              className="absolute right-0 sm:right-4 bottom-8 glass px-3 py-2 rounded-xl text-sm font-medium z-30"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
+              transition={{ delay: 1.3, y: { duration: 3.5, repeat: Infinity } }}
+            >
+              📱 2 Game Modes
             </motion.div>
           </motion.div>
         </div>
