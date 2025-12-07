@@ -1,7 +1,6 @@
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import HowItWorks from "@/components/landing/HowItWorks";
-import GameModes from "@/components/landing/GameModes";
 import Features from "@/components/landing/Features";
 import TopicLibrary from "@/components/landing/TopicLibrary";
 import CTA from "@/components/landing/CTA";
@@ -15,7 +14,6 @@ const Index = () => {
       <div id="how-it-works">
         <HowItWorks />
       </div>
-      <GameModes />
       <div id="features">
         <Features />
       </div>
