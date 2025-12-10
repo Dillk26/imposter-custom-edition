@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download, Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "#how-it-works", label: "How It Works" },
@@ -28,10 +29,10 @@ const Navbar = () => {
             whileHover={{ scale: 1.02 }}
           >
             <motion.div 
-              className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center"
+              className="w-10 h-10 rounded-xl overflow-hidden"
               whileHover={{ rotate: 10 }}
             >
-              <span className="text-xl">🎭</span>
+              <img src={logo} alt="Imposter Logo" className="w-full h-full object-cover" />
             </motion.div>
             <span className="font-display font-bold text-lg hidden sm:block">
               Imposter

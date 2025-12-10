@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -13,8 +14,8 @@ const Footer = () => {
             className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-              <span className="text-xl">🎭</span>
+            <div className="w-10 h-10 rounded-xl overflow-hidden">
+              <img src={logo} alt="Imposter Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="font-display font-bold text-lg">Imposter: Custom Edition</span>
