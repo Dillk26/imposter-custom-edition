@@ -98,7 +98,7 @@ const Features = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Everything You Need for <span className="gradient-text">Epic Games</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

@@ -103,7 +103,7 @@ const InteractiveDemo = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             See It In <span className="gradient-text">Action</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -113,32 +113,32 @@ const InteractiveDemo = () => {
 
         {/* Demo container */}
         <motion.div 
-          className="glass-strong rounded-3xl p-8 lg:p-12 border-2 border-primary/20 relative overflow-hidden"
+          className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-12 border-2 border-primary/20 relative overflow-hidden"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
           {/* Phase indicator */}
-          <div className="flex items-center justify-center gap-2 mb-8">
+          <div className="flex items-center justify-center gap-1 sm:gap-2 mb-6 sm:mb-8 flex-wrap">
             {[
-              { id: "reveal", icon: Eye, label: "Word Reveal" },
-              { id: "discussion", icon: MessageCircle, label: "Discussion" },
-              { id: "voting", icon: Vote, label: "Voting" },
+              { id: "reveal", icon: Eye, label: "Reveal" },
+              { id: "discussion", icon: MessageCircle, label: "Discuss" },
+              { id: "voting", icon: Vote, label: "Vote" },
               { id: "result", icon: Trophy, label: "Result" },
             ].map((p, i) => (
-              <div key={p.id} className="flex items-center gap-2">
+              <div key={p.id} className="flex items-center gap-1 sm:gap-2">
                 <motion.div 
-                  className={`flex items-center gap-2 px-3 py-2 rounded-full transition-all ${
+                  className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full transition-all ${
                     phase === p.id 
                       ? 'bg-gradient-primary text-primary-foreground' 
                       : 'bg-muted/50 text-muted-foreground'
                   }`}
                   animate={{ scale: phase === p.id ? 1.05 : 1 }}
                 >
-                  <p.icon className="w-4 h-4" />
-                  <span className="text-sm font-medium hidden sm:inline">{p.label}</span>
+                  <p.icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="text-xs sm:text-sm font-medium">{p.label}</span>
                 </motion.div>
-                {i < 3 && <div className="w-8 h-0.5 bg-muted/50 hidden sm:block" />}
+                {i < 3 && <div className="w-4 sm:w-8 h-0.5 bg-muted/50 hidden xs:block" />}
               </div>
             ))}
           </div>

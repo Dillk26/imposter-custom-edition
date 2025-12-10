@@ -127,14 +127,14 @@ const Hero = () => {
 
           {/* Phone mockups - 3 phones staggered */}
           <motion.div 
-            className="flex-1 relative flex justify-center items-center min-h-[500px]"
+            className="flex-1 relative flex justify-center items-center min-h-[400px] sm:min-h-[500px] mt-8 lg:mt-0"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            {/* Background phone - categories */}
+            {/* Background phone - categories - hidden on very small screens */}
             <motion.div 
-              className="absolute -left-8 sm:-left-4 top-16 w-[180px] sm:w-[220px] opacity-50 blur-[0.5px] z-0"
+              className="absolute -left-4 sm:left-0 top-12 sm:top-16 w-[140px] sm:w-[180px] md:w-[220px] opacity-50 blur-[0.5px] z-0 hidden xs:block"
               animate={{ y: [0, -12, 0], rotate: [-2, -4, -2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
@@ -143,14 +143,14 @@ const Hero = () => {
                 <img 
                   src={appCategoriesScreen} 
                   alt="Browse Categories Screen" 
-                  className="relative w-full rounded-[2rem] shadow-xl"
+                  className="relative w-full rounded-[1.5rem] sm:rounded-[2rem] shadow-xl"
                 />
               </div>
             </motion.div>
 
-            {/* Middle phone - voting */}
+            {/* Middle phone - voting - hidden on very small screens */}
             <motion.div 
-              className="absolute -right-4 sm:right-0 top-8 w-[190px] sm:w-[230px] opacity-60 blur-[0.3px] z-10"
+              className="absolute right-0 sm:right-4 top-6 sm:top-8 w-[150px] sm:w-[190px] md:w-[230px] opacity-60 blur-[0.3px] z-10 hidden xs:block"
               animate={{ y: [0, -15, 0], rotate: [2, 4, 2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             >
@@ -159,14 +159,14 @@ const Hero = () => {
                 <img 
                   src={appVotingScreen} 
                   alt="Voting Screen" 
-                  className="relative w-full rounded-[2rem] shadow-xl"
+                  className="relative w-full rounded-[1.5rem] sm:rounded-[2rem] shadow-xl"
                 />
               </div>
             </motion.div>
 
             {/* Main phone - imposter reveal */}
             <motion.div 
-              className="relative w-[240px] sm:w-[280px] z-20"
+              className="relative w-[200px] sm:w-[240px] md:w-[280px] z-20"
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -179,20 +179,20 @@ const Hero = () => {
                 <img 
                   src={appImposterScreen} 
                   alt="Imposter Role Reveal" 
-                  className="relative w-full rounded-[2.5rem] shadow-2xl"
+                  className="relative w-full rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl"
                 />
                 {/* Shine effect */}
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-[2.5rem]"
+                  className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-[2rem] sm:rounded-[2.5rem]"
                   animate={{ opacity: [0, 0.3, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: 2 }}
                 />
               </motion.div>
             </motion.div>
 
-            {/* Floating badges */}
+            {/* Floating badges - better mobile positioning */}
             <motion.div 
-              className="absolute -left-2 bottom-24 sm:bottom-20 glass px-3 py-2 rounded-xl text-sm font-medium z-30"
+              className="absolute left-2 sm:-left-2 bottom-16 sm:bottom-20 glass px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium z-30"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
               transition={{ delay: 1, y: { duration: 3, repeat: Infinity } }}
@@ -200,7 +200,7 @@ const Hero = () => {
               🎯 Custom Topics
             </motion.div>
             <motion.div 
-              className="absolute right-0 sm:right-4 bottom-8 glass px-3 py-2 rounded-xl text-sm font-medium z-30"
+              className="absolute right-2 sm:right-4 bottom-4 sm:bottom-8 glass px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium z-30"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
               transition={{ delay: 1.3, y: { duration: 3.5, repeat: Infinity } }}
