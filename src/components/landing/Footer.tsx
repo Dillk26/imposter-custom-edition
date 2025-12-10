@@ -25,14 +25,18 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            {["Privacy Policy", "Terms of Service", "Contact"].map((link) => (
+            {[
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms of Service", href: "/terms" },
+              { label: "Contact", href: "/contact" },
+            ].map((link) => (
               <motion.a 
-                key={link}
-                href="#" 
+                key={link.label}
+                href={link.href} 
                 className="hover:text-foreground transition-colors"
                 whileHover={{ y: -2 }}
               >
-                {link}
+                {link.label}
               </motion.a>
             ))}
           </div>
