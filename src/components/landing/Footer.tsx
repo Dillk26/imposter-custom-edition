@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -40,17 +39,6 @@ const Footer = () => {
               </motion.a>
             ))}
           </div>
-
-          {/* Copyright */}
-          <motion.div 
-            className="flex items-center gap-1 text-sm text-muted-foreground"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-pink fill-pink" />
-            <span>for game nights</span>
-          </motion.div>
         </div>
       </div>
     </footer>
