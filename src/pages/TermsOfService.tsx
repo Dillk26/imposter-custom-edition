@@ -21,12 +21,12 @@ const PrivacyPolicy = () => {
             <div className="grid gap-4 sm:grid-cols-2 mt-6 mb-10">
               <div className="glass rounded-2xl p-4">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Effective Date:</strong> December 9, 2024
+                  <strong>Effective Date:</strong> December 10, 2025
                 </p>
               </div>
               <div className="glass rounded-2xl p-4">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Last Updated:</strong> December 9, 2024
+                  <strong>Last Updated:</strong> December 10, 2025
                 </p>
               </div>
             </div>
