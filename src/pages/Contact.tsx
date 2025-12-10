@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -16,19 +17,54 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    
-    setName("");
-    setEmail("");
-    setMessage("");
-    setIsSubmitting(false);
+
+    // EmailJS configuration
+    // Fallback values for production (GitHub Pages doesn't support .env at runtime)
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_tt7chlt";
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_6qlllik";
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "OOSMCwB0YyxlaOIXG";
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast({
+        title: "Configuration Error",
+        description: "Email service is not configured. Please contact us directly at impostercustomedition@gmail.com",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+          to_email: "impostercustomedition@gmail.com",
+        },
+        publicKey
+      );
+
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you as soon as possible.",
+      });
+
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact us directly at impostercustomedition@gmail.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -147,7 +183,12 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground">For general inquiries</p>
                     </div>
                   </div>
-                  <p className="text-foreground">support@imposter-game.app</p>
+                  <a 
+                    href="mailto:impostercustomedition@gmail.com" 
+                    className="text-foreground hover:text-primary transition-colors"
+                  >
+                    impostercustomedition@gmail.com
+                  </a>
                 </div>
 
                 <div className="glass rounded-2xl p-6">
