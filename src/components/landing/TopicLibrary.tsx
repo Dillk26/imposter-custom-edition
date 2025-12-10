@@ -285,101 +285,99 @@ const TopicLibrary = () => {
             transition={{ duration: 3, repeat: Infinity }}
           />
           
-          <div className="relative glass-strong rounded-3xl p-8 lg:p-12 border-2 border-primary/40 overflow-hidden">
+          <div className="relative glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-12 border-2 border-primary/40 overflow-hidden">
             {/* Background gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple/10 via-transparent to-cyan/10" />
             
-            <div className="relative grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Content */}
               <div>
                 <motion.div 
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple/30 to-pink/30 mb-6"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-purple/30 to-pink/30 mb-4 sm:mb-6"
                   animate={{ scale: [1, 1.02, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <Star className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm font-bold">Exclusive Feature - Only in Custom Edition</span>
+                  <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
+                  <span className="text-xs sm:text-sm font-bold">Exclusive Feature</span>
                 </motion.div>
                 
                 <h3 className="font-display text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
                   Create <span className="gradient-text">Unlimited Custom Topics</span>
                 </h3>
                 
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 sm:mb-8">
                   <span className="text-foreground font-semibold">No other Imposter game offers this.</span> Build personalized word lists 
-                  for inside jokes, shared memories, or your friend group's unique experiences. 
-                  Keep them private or share with the world.
+                  for inside jokes, shared memories, or your friend group's unique experiences.
                 </p>
 
                 {/* Feature list with better styling */}
-                <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                   {[
-                    { icon: Plus, text: "Unlimited custom word lists" },
-                    { icon: Unlock, text: "Public or private topics" },
-                    { icon: Sparkles, text: "Inside jokes & personal content" },
-                    { icon: Shuffle, text: "Min 4 words, no maximum" },
+                    { icon: Plus, text: "Unlimited word lists" },
+                    { icon: Unlock, text: "Public or private" },
+                    { icon: Sparkles, text: "Inside jokes" },
+                    { icon: Shuffle, text: "Min 4 words" },
                   ].map((feature, i) => (
                     <motion.div 
                       key={feature.text}
-                      className="flex items-center gap-3 p-3 rounded-xl bg-muted/30"
+                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-muted/30"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      whileHover={{ x: 5, backgroundColor: "hsl(var(--muted) / 0.5)" }}
                     >
-                      <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                        <feature.icon className="w-4 h-4 text-primary-foreground" />
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                        <feature.icon className="w-3 h-3 sm:w-4 sm:h-4 text-primary-foreground" />
                       </div>
-                      <span className="text-sm font-medium">{feature.text}</span>
+                      <span className="text-xs sm:text-sm font-medium">{feature.text}</span>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Use case examples */}
-                <p className="text-sm text-muted-foreground mb-4">Popular custom topic ideas:</p>
-                <div className="flex flex-wrap gap-2">
-                  {customExamples.map((example, i) => (
-                    <motion.span
-                      key={example.name}
-                      className="px-3 py-1.5 rounded-full glass text-sm flex items-center gap-2"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5 + i * 0.1 }}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <span>{example.icon}</span>
-                      {example.name}
-                    </motion.span>
-                  ))}
+                {/* Use case examples - hidden on very small screens */}
+                <div className="hidden sm:block">
+                  <p className="text-sm text-muted-foreground mb-4">Popular custom topic ideas:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {customExamples.map((example, i) => (
+                      <motion.span
+                        key={example.name}
+                        className="px-3 py-1.5 rounded-full glass text-sm flex items-center gap-2"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 + i * 0.1 }}
+                      >
+                        <span>{example.icon}</span>
+                        {example.name}
+                      </motion.span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Interactive demo */}
               <div className="relative">
                 <motion.div 
-                  className="glass-strong rounded-2xl p-6 border border-primary/20"
-                  whileHover={{ borderColor: "hsl(var(--primary) / 0.4)" }}
+                  className="glass-strong rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-primary/20"
                 >
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center">
-                        <PenTool className="w-5 h-5 text-white" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-6 gap-2">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                        <PenTool className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-display font-bold">My Friend Group</h4>
+                        <h4 className="font-display font-bold text-sm sm:text-base">My Friend Group</h4>
                         <p className="text-xs text-muted-foreground">Custom Topic</p>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground px-3 py-1 rounded-full bg-muted flex items-center gap-1">
+                    <span className="text-xs text-muted-foreground px-2 sm:px-3 py-1 rounded-full bg-muted flex items-center gap-1 flex-shrink-0">
                       <Lock className="w-3 h-3" />
-                      {customWords.length} words
+                      {customWords.length}
                     </span>
                   </div>
                   
                   {/* Word list */}
-                  <div className="space-y-2 mb-4 max-h-[200px] overflow-y-auto">
+                  <div className="space-y-2 mb-4 max-h-[150px] sm:max-h-[200px] overflow-y-auto">
                     <AnimatePresence>
                       {customWords.map((word, i) => (
                         <motion.div 
@@ -388,13 +386,12 @@ const TopicLibrary = () => {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: 20 }}
-                          className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 group"
-                          whileHover={{ backgroundColor: "hsl(var(--muted))" }}
+                          className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-muted/50 group"
                         >
-                          <div className="w-7 h-7 rounded-full bg-gradient-primary flex items-center justify-center text-xs text-primary-foreground font-bold">
+                          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-primary flex items-center justify-center text-xs text-primary-foreground font-bold flex-shrink-0">
                             {i + 1}
                           </div>
-                          <span className="text-sm flex-1">{word}</span>
+                          <span className="text-xs sm:text-sm flex-1">{word}</span>
                           <motion.button
                             onClick={() => setCustomWords(customWords.filter(w => w !== word))}
                             className="opacity-0 group-hover:opacity-100 text-muted-foreground hover:text-red-400 transition-all"
@@ -415,26 +412,26 @@ const TopicLibrary = () => {
                       onChange={(e) => setNewWord(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && addWord()}
                       placeholder="Add a word..."
-                      className="flex-1 h-11 rounded-xl bg-muted/30 border border-border/50 px-4 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                      className="flex-1 h-9 sm:h-11 rounded-lg sm:rounded-xl bg-muted/30 border border-border/50 px-3 sm:px-4 text-xs sm:text-sm focus:outline-none focus:border-primary/50 transition-colors"
                     />
                     <motion.button 
                       onClick={addWord}
-                      className="w-11 h-11 rounded-xl bg-gradient-primary flex items-center justify-center"
+                      className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Plus className="w-5 h-5 text-primary-foreground" />
+                      <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
                     </motion.button>
                   </div>
 
-                  <p className="text-xs text-muted-foreground text-center mt-4">
-                    Try adding words above! Min 4 to play.
+                  <p className="text-xs text-muted-foreground text-center mt-3 sm:mt-4">
+                    Try adding words above!
                   </p>
                 </motion.div>
 
-                {/* Floating decorative elements */}
+                {/* Floating decorative elements - hidden on mobile */}
                 <motion.div 
-                  className="absolute -top-6 -right-6 px-3 py-2 rounded-xl glass text-sm font-medium border border-green-500/30 bg-green-500/10"
+                  className="absolute -top-6 -right-6 px-3 py-2 rounded-xl glass text-sm font-medium border border-green-500/30 bg-green-500/10 hidden sm:block"
                   animate={{ y: [0, -5, 0], rotate: [0, 2, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
