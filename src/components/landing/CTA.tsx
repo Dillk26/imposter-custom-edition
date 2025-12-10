@@ -48,7 +48,7 @@ const CTA = () => {
             <span className="text-sm text-muted-foreground">Free to Download</span>
           </motion.div>
 
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-4 relative z-10">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 relative z-10">
             Ready to Find the <span className="gradient-text">Imposter</span>?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto relative z-10">

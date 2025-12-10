@@ -101,8 +101,8 @@ const TopicLibrary = () => {
             <Crown className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold text-primary">What Makes Us Different</span>
           </motion.div>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="gradient-text">1,000+ Words.</span> <span className="text-foreground">20+ Categories.</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <span className="gradient-text">1,000+ Words.</span> <br className="sm:hidden" /><span className="text-foreground">20+ Categories.</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             The largest topic library of any Imposter game — <span className="text-foreground font-medium">plus unlimited custom topics</span>. 
@@ -228,21 +228,21 @@ const TopicLibrary = () => {
 
           {/* Right: Phone mockup with floating categories */}
           <motion.div 
-            className="relative flex justify-center items-center min-h-[500px]"
+            className="relative flex justify-center items-center min-h-[350px] sm:min-h-[500px] mt-8 lg:mt-0"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            {/* Floating category badges */}
+            {/* Floating category badges - hidden on very small screens */}
             {[
-              { name: "Foods", emoji: "🍕", pos: "-left-4 top-12", delay: 0 },
-              { name: "Greek", emoji: "🏛️", pos: "-right-4 top-24", delay: 0.5 },
-              { name: "UCLA", emoji: "🐻", pos: "-left-8 bottom-32", delay: 1 },
-              { name: "Cities", emoji: "🏙️", pos: "-right-8 bottom-16", delay: 1.5 },
+              { name: "Foods", emoji: "🍕", pos: "left-4 sm:-left-4 top-8 sm:top-12", delay: 0 },
+              { name: "Greek", emoji: "🏛️", pos: "right-4 sm:-right-4 top-20 sm:top-24", delay: 0.5 },
+              { name: "UCLA", emoji: "🐻", pos: "left-2 sm:-left-8 bottom-24 sm:bottom-32", delay: 1 },
+              { name: "Cities", emoji: "🏙️", pos: "right-2 sm:-right-8 bottom-12 sm:bottom-16", delay: 1.5 },
             ].map((badge) => (
               <motion.div
                 key={badge.name}
-                className={`absolute ${badge.pos} glass px-3 py-2 rounded-xl flex items-center gap-2 z-20`}
+                className={`absolute ${badge.pos} glass px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl flex items-center gap-1.5 sm:gap-2 z-20 hidden sm:flex`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -251,13 +251,13 @@ const TopicLibrary = () => {
                 style={{ animationDelay: `${badge.delay}s`, animationDuration: '3s' }}
               >
                 <span>{badge.emoji}</span>
-                <span className="text-sm font-medium">{badge.name}</span>
+                <span className="text-xs sm:text-sm font-medium">{badge.name}</span>
               </motion.div>
             ))}
 
             {/* Phone */}
             <motion.div 
-              className="relative w-[280px] sm:w-[320px]"
+              className="relative w-[220px] sm:w-[280px] md:w-[320px]"
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -265,7 +265,7 @@ const TopicLibrary = () => {
               <img 
                 src={appCategoriesScreen} 
                 alt="Browse Categories Screen" 
-                className="relative w-full rounded-[2.5rem] shadow-2xl"
+                className="relative w-full rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl"
               />
             </motion.div>
           </motion.div>
@@ -301,7 +301,7 @@ const TopicLibrary = () => {
                   <span className="text-sm font-bold">Exclusive Feature - Only in Custom Edition</span>
                 </motion.div>
                 
-                <h3 className="font-display text-3xl lg:text-5xl font-bold mb-6">
+                <h3 className="font-display text-2xl sm:text-3xl lg:text-5xl font-bold mb-6">
                   Create <span className="gradient-text">Unlimited Custom Topics</span>
                 </h3>
                 
