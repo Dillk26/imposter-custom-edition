@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight, Sparkles } from "lucide-react";
-import phoneWordScreen from "@/assets/phone-word-screen.png";
-import phoneLobbyScreen from "@/assets/phone-lobby-screen.png";
+import appImposterScreen from "@/assets/app-imposter-screen.png";
+import appResultsScreen from "@/assets/app-results-screen.png";
 
 const CTA = () => {
   return (
@@ -24,14 +24,14 @@ const CTA = () => {
         >
           {/* Floating phones in background */}
           <motion.img 
-            src={phoneWordScreen}
+            src={appImposterScreen}
             alt=""
             className="absolute -left-20 top-1/2 -translate-y-1/2 w-40 opacity-20 blur-sm hidden lg:block"
             animate={{ y: [0, -20, 0], rotate: [-5, -10, -5] }}
             transition={{ duration: 6, repeat: Infinity }}
           />
           <motion.img 
-            src={phoneLobbyScreen}
+            src={appResultsScreen}
             alt=""
             className="absolute -right-20 top-1/2 -translate-y-1/2 w-40 opacity-20 blur-sm hidden lg:block"
             animate={{ y: [0, 20, 0], rotate: [5, 10, 5] }}
@@ -82,7 +82,7 @@ const CTA = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            Free to download • No account required • Works offline
+            Free to download • Works offline
           </motion.p>
         </motion.div>
       </div>
