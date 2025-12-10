@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Download, Sparkles, ChevronDown, Star, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
-import phoneWordScreen from "@/assets/phone-word-screen.png";
-import phoneLobbyScreen from "@/assets/phone-lobby-screen.png";
-import phoneTopicsScreen from "@/assets/phone-topics-screen.png";
+import appImposterScreen from "@/assets/app-imposter-screen.png";
+import appVotingScreen from "@/assets/app-voting-screen.png";
+import appCategoriesScreen from "@/assets/app-categories-screen.png";
 
 const Hero = () => {
   return (
@@ -132,7 +132,7 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            {/* Background phone - topics */}
+            {/* Background phone - categories */}
             <motion.div 
               className="absolute -left-8 sm:-left-4 top-16 w-[180px] sm:w-[220px] opacity-50 blur-[0.5px] z-0"
               animate={{ y: [0, -12, 0], rotate: [-2, -4, -2] }}
@@ -141,14 +141,14 @@ const Hero = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-pink/30 to-purple/30 blur-[30px] scale-110" />
                 <img 
-                  src={phoneTopicsScreen} 
-                  alt="Topics Screen" 
+                  src={appCategoriesScreen} 
+                  alt="Browse Categories Screen" 
                   className="relative w-full rounded-[2rem] shadow-xl"
                 />
               </div>
             </motion.div>
 
-            {/* Middle phone - lobby */}
+            {/* Middle phone - voting */}
             <motion.div 
               className="absolute -right-4 sm:right-0 top-8 w-[190px] sm:w-[230px] opacity-60 blur-[0.3px] z-10"
               animate={{ y: [0, -15, 0], rotate: [2, 4, 2] }}
@@ -157,28 +157,28 @@ const Hero = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan/30 to-indigo/30 blur-[35px] scale-110" />
                 <img 
-                  src={phoneLobbyScreen} 
-                  alt="Game Lobby Screen" 
+                  src={appVotingScreen} 
+                  alt="Voting Screen" 
                   className="relative w-full rounded-[2rem] shadow-xl"
                 />
               </div>
             </motion.div>
 
-            {/* Main phone - word reveal */}
+            {/* Main phone - imposter reveal */}
             <motion.div 
               className="relative w-[240px] sm:w-[280px] z-20"
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="absolute inset-0 bg-gradient-primary opacity-40 blur-[60px] scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/30 to-purple/30 opacity-40 blur-[60px] scale-110" />
               <motion.div
                 className="relative"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <img 
-                  src={phoneWordScreen} 
-                  alt="Word Reveal Screen" 
+                  src={appImposterScreen} 
+                  alt="Imposter Role Reveal" 
                   className="relative w-full rounded-[2.5rem] shadow-2xl"
                 />
                 {/* Shine effect */}

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Plus, Sparkles, Library, Star, Crown, Shuffle, Lock, Unlock, PenTool } from "lucide-react";
-import phoneTopicsScreen from "@/assets/phone-topics-screen.png";
+import appCategoriesScreen from "@/assets/app-categories-screen.png";
 
 const mainCategories = [
   { 
@@ -263,8 +263,8 @@ const TopicLibrary = () => {
             >
               <div className="absolute inset-0 bg-gradient-primary opacity-30 blur-[60px] scale-110" />
               <img 
-                src={phoneTopicsScreen} 
-                alt="Topics Selection Screen" 
+                src={appCategoriesScreen} 
+                alt="Browse Categories Screen" 
                 className="relative w-full rounded-[2.5rem] shadow-2xl"
               />
             </motion.div>
