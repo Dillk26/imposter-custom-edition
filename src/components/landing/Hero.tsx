@@ -132,9 +132,9 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            {/* Background phone - categories - hidden on very small screens */}
+            {/* Background phone - categories */}
             <motion.div 
-              className="absolute -left-4 sm:left-0 top-12 sm:top-16 w-[140px] sm:w-[180px] md:w-[220px] opacity-50 blur-[0.5px] z-0 hidden xs:block"
+              className="absolute -left-4 sm:left-0 top-12 sm:top-16 w-[140px] sm:w-[180px] md:w-[220px] opacity-50 blur-[0.5px] z-0"
               animate={{ y: [0, -12, 0], rotate: [-2, -4, -2] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
@@ -148,9 +148,9 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Middle phone - voting - hidden on very small screens */}
+            {/* Middle phone - voting */}
             <motion.div 
-              className="absolute right-0 sm:right-4 top-6 sm:top-8 w-[150px] sm:w-[190px] md:w-[230px] opacity-60 blur-[0.3px] z-10 hidden xs:block"
+              className="absolute right-0 sm:right-4 top-6 sm:top-8 w-[150px] sm:w-[190px] md:w-[230px] opacity-60 blur-[0.3px] z-10"
               animate={{ y: [0, -15, 0], rotate: [2, 4, 2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             >
